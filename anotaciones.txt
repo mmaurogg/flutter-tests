@@ -1,0 +1,60 @@
+Curso: https://www.youtube.com/playlist?list=PLprI2satkVdFwpxo_bjFkCxXz5RluG8FY
+
+Nota: asegurarse de tener instalada la dependencia de testing, mockito y build_runner
+
+Correr test con covertura
+---------------------------
+1. correr comando que creará una carpeta llamada coverage en la que se encuentra los datos en LCOV 
+flutter test --coverage
+
+2. decodificar el LCOV
+    siguientes pasos https://github.com/linux-test-project/lcov
+
+
+Estructura:
+-----------
+1. SetUp -> inicializar del componente a testear
+2. Side effects -> acá se guarda el resultado de la operación a testear en una variable  
+3. Expectations -> compara el valor arrojado con el valor esperado
+
+Metodos 
+---------------
+ setUpAll(() {
+    // it will execute once before any tests run
+  });
+
+  setUp(() {
+    // it will execute before every test
+    //here i can initializar code that I will use
+  });
+
+  tearDown(() {
+    // it will execute after every test
+  });
+
+  tearDownAll(() {
+    // it will execute once after all the tests run
+  });
+
+
+
+
+Future
+----------------
+- puedo poner await
+
+
+Mockito
+----------
+
+1. crear un metodo mockeado
+ class MockClassName extends Mock implements ClassName{}
+
+2. en set up inicializar el objeto mockeado
+setUp(() {
+       className = MockClassName();
+    });
+
+3.  establecer el objeyto que quiero mockear
+    when(className.method(args)).thenReturn('response')
+
